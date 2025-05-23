@@ -1,0 +1,27 @@
+{
+  "name": "brillionblog",
+  "version": "1.0.0",
+  "description": "A v4v writing tool",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willcodeforcoffee/brillionblog.git"
+  },
+  "author": "Eric Hoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willcodeforcoffee/brillionblog/issues"
+  },
+  "homepage": "https://github.com/willcodeforcoffee/brillionblog#readme",
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^4.0.4",
+    "prettier": "^3.5.3"
+  }
+}
