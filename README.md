@@ -1,3 +1,4 @@
 # BrillionBlog
 
-A [value4value](value4value.info) blogging system and simple CMS.
+BrillionBlog is a [value4value](https://value4value.info/about/) blogging system
+and simple CMS.
