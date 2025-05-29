@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope path: ".well-known" do
+    scope module: :well_known do
+      get "webfinger", to: "webfinger#show", as: :webfinger
+    end
+  end
   get "home/index"
   resource :session
   resources :passwords, param: :token
