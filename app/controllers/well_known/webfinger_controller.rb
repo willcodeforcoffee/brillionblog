@@ -46,8 +46,7 @@ class WellKnown::WebfingerController < ApplicationController
         "http://example.com/ns/role" => "author"
       },
       links: [
-        { rel: "http://webfinger.example/rel/profile-page", href: "TODO" },
-        { rel: "http://webfinger.example/rel/businesscard", href: "TODO" }
+        { rel: "self", type: "application/activity+json", href: root_url }
       ]
     }
 

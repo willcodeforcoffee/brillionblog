@@ -18,7 +18,6 @@ class WellKnown::WebfingerControllerTest < ActionDispatch::IntegrationTest
 
     json_response = JSON.parse(response.body)
     assert_equal "acct:#{user.email_address}", json_response["subject"]
-    assert_includes json_response["links"], { "rel" => "http://webfinger.example/rel/profile-page", "href" => "TODO" }
-    assert_includes json_response["links"], { "rel" => "http://webfinger.example/rel/businesscard", "href" => "TODO" }
+    assert_includes json_response["links"], { "rel" => "self", "type" => "application/activity+json", "href" => root_url }
   end
 end
