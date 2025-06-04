@@ -42,9 +42,9 @@ class WellKnown::WebfingerController < ApplicationController
 
     result = {
       subject: resource_param,
-      properties: {
-        "http://example.com/ns/role" => "author"
-      },
+      # properties: {
+      #   "https://example.com/ns/role" => "author"
+      # },
       links: [
         { rel: "self", type: "application/activity+json", href: root_url }
       ]
@@ -58,8 +58,8 @@ class WellKnown::WebfingerController < ApplicationController
 
     def resource_user
       return nil if resource_param.blank?
-      email_address = resource_param.sub("acct:", "")
-      User.find_by(email_address: email_address)
+      username = resource_param.sub("acct:", "")
+      User.find_by(username: username)
     end
 
     def resource_param

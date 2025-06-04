@@ -13,7 +13,7 @@ class WellKnown::WebfingerControllerTest < ActionDispatch::IntegrationTest
 
   test "should get 200 OK with valid user" do
     user = users(:one) # Assuming you have a fixture for a valid user
-    get webfinger_url, params: { resource: "acct:#{user.email_address}" }
+    get webfinger_url, params: { resource: "acct:#{user.username}" }
     assert_response :ok
 
     json_response = JSON.parse(response.body)
