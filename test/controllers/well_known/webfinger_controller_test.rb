@@ -18,6 +18,6 @@ class WellKnown::WebfingerControllerTest < ActionDispatch::IntegrationTest
 
     json_response = JSON.parse(response.body)
     assert_equal "acct:#{user.username}", json_response["subject"]
-    assert_includes json_response["links"], { "rel" => "self", "type" => "application/activity+json", "href" => root_url }
+    assert_includes json_response["links"], { "rel" => "self", "type" => "application/activity+json", "href" => user_url(user.username) }
   end
 end

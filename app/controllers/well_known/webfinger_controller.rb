@@ -46,7 +46,7 @@ class WellKnown::WebfingerController < ApplicationController
       #   "https://example.com/ns/role" => "author"
       # },
       links: [
-        { rel: "self", type: "application/activity+json", href: root_url }
+        { rel: "self", type: "application/activity+json", href: user_url(resource_user.username) }
       ]
     }
 
