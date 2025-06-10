@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  scope path: ".well-known" do
+    scope module: :well_known do
+      get "webfinger", to: "webfinger#show", as: :webfinger
+    end
+  end
   get "home/index"
   resource :session
   resources :passwords, param: :token
+  resources :users, only: [ :index, :show ], param: :username
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

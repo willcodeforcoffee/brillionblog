@@ -1,0 +1,19 @@
+<div>
+  <h1 class="font-bold text-4xl">Users</h1>
+  <table class="min-w-full mt-4 border">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 border-b text-left">Username</th>
+        <th class="px-4 py-2 border-b text-left">Since</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td class="px-4 py-2 border-b"><%= link_to user.username, user_path(user.username) %></td>
+          <td class="px-4 py-2 border-b"><%= user.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
