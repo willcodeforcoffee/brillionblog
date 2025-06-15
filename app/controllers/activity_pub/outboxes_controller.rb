@@ -1,6 +1,7 @@
 class ActivityPub::OutboxesController < ApplicationController
+  allow_unauthenticated_access
+
   def show
-    binding.irb
     head :ok
   end
 end

@@ -1,5 +1,6 @@
-class ActivityPub::Inboxes
-  Controller < ApplicationController
+class ActivityPub::InboxesController < ApplicationController
+  allow_unauthenticated_access
+
   def create
     head :ok
   end
