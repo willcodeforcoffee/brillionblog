@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_03_180858) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_15_052807) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -64,6 +64,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_03_180858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.text "public_key"
+    t.text "private_key"
+    t.string "name"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 

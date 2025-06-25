@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get "home/index"
   resource :session
   resources :passwords, param: :token
-  resources :users, only: [ :index, :show ], param: :username
+  resources :users, only: [ :index, :show ], param: :username do
+    scope module: :activity_pub do
+      resource :inbox, only: [ :create ]
+      resource :outbox, only: [ :show ]
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

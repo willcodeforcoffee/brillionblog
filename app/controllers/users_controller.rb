@@ -38,9 +38,24 @@ class UsersController < ApplicationController
     def json_resource(user)
       return nil if user.blank?
 
-      {
+      jsonld = {
+        "@context": [ "https://www.w3.org/ns/activitystreams", "https://w3id.org/security/v1" ],
+        type: "Person",
+        id: user_url(user.username),
+        name: user.name,
+        preferredUsername: user.username,
+        inbox: user_inbox_url(user.username),
+        outbox: user_outbox_url(user.username),
         username: user.username,
         created_at: user.created_at
       }
+
+      jsonld[:publicKey] = {
+        id: "#{user_url(user.username)}#main-key",
+        owner: user_url(user.username),
+        publicKeyPem: user.public_key
+      } if user.public_key.present?
+
+      jsonld
     end
 end
