@@ -9,7 +9,7 @@
   },
   "rubyLsp.rubyVersionManager": {
     "identifier": "mise",
-    "miseExecutablePath": "/usr/bin/mise",
+    // "miseExecutablePath": "/usr/bin/mise",
     "formatter": "rubocop"
   },
   "workbench.colorCustomizations": {
