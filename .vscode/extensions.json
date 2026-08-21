@@ -8,5 +8,6 @@
     "rubocop.vscode-rubocop",
     "bradlc.vscode-tailwindcss",
     "github.vscode-github-actions",
+    "hverlin.mise-vscode"
   ]
 }

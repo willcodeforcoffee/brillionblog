@@ -8,7 +8,7 @@ BrillionBlog is a [value4value](https://value4value.info/about/) blogging system
 
 ## Runtime
 
-Uses `mise` for toolchain management: Ruby 3.4.4, Node 23. Environment variables are loaded from `.env` via mise.
+Uses `mise` for toolchain management: Ruby 4.0.6, Node 23. Environment variables are loaded from `.env` via mise.
 
 ## Common Commands
 

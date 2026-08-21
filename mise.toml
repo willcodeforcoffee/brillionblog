@@ -1,6 +1,6 @@
 [tools]
 node = "23"
-ruby = "3.4.4"
+ruby = "4.0.6"
 
 [env]
 _.file = '.env'
