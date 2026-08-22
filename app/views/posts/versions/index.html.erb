@@ -1,0 +1,26 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">History: <%= @post.title %></h1>
+  <p class="mt-2"><%= link_to "Back to post", post_path(@post), class: "text-blue-600 underline hover:no-underline" %></p>
+
+  <div class="mt-6 divide-y">
+    <% @post_versions.each do |version| %>
+      <div class="py-4">
+        <p class="font-medium">
+          <%= link_to version.title, post_version_path(@post, version) %>
+        </p>
+        <p class="text-sm text-gray-500">
+          Saved by <%= version.user.name %> &middot; <%= version.created_at.to_fs(:long) %>
+          <% if version.published_at.present? %>
+            &middot; published
+          <% else %>
+            &middot; draft
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+
+    <% if @post_versions.empty? %>
+      <p class="py-4 text-gray-500">No saved versions yet.</p>
+    <% end %>
+  </div>
+</div>

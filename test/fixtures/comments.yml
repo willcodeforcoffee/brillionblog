@@ -1,0 +1,10 @@
+one:
+  post: one
+  user: two
+  body: Great post!
+
+guest_one:
+  post: one
+  guest_name: Guest Commenter
+  guest_email: guest@example.com
+  body: Nice read.

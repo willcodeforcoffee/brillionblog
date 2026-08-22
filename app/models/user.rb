@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :sessions, dependent: :destroy
+  has_many :post_authors, dependent: :destroy
+  has_many :posts, through: :post_authors
+  has_many :post_versions, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   after_create :initialize_keypair
 

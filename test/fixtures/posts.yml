@@ -1,0 +1,19 @@
+one:
+  title: First Post
+  slug: first-post
+  summary: The first post summary.
+  published_at: <%= 1.day.ago %>
+  comments_enabled: true
+
+draft_one:
+  title: Draft Post
+  slug: draft-post
+  summary: A work in progress.
+  comments_enabled: true
+
+no_comments:
+  title: Quiet Post
+  slug: quiet-post
+  summary: Comments are off for this one.
+  published_at: <%= 1.day.ago %>
+  comments_enabled: false
