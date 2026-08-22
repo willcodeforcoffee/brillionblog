@@ -1,0 +1,58 @@
+<%= form_with model: post, url: (post.new_record? ? posts_path : post_path(post)), class: "contents" do |form| %>
+  <% if post.errors.any? %>
+    <div class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg" id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prevented this post from being saved:</h2>
+      <ul class="list-disc list-inside">
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title, class: "block font-medium" %>
+    <%= form.text_field :title, required: true, class: "block shadow-sm rounded-md border border-gray-400 focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :summary, "Summary (used in the RSS feed)", class: "block font-medium" %>
+    <%= form.text_area :summary, required: true, rows: 3, class: "block shadow-sm rounded-md border border-gray-400 focus:outline-blue-600 px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :content, class: "block font-medium" %>
+    <%= form.rich_text_area :content, class: "mt-2" %>
+  </div>
+
+  <div class="my-5">
+    <span class="block font-medium">Authors</span>
+    <%= form.collection_check_boxes :author_ids, User.order(:username), :id, :username do |b| %>
+      <div class="inline-flex items-center gap-1 mr-4">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="my-5">
+    <span class="block font-medium">Status</span>
+    <div class="inline-flex items-center gap-1 mr-4">
+      <%= form.radio_button :state, "draft" %>
+      <%= form.label :state_draft, "Save as draft", for: "post_state_draft" %>
+    </div>
+    <div class="inline-flex items-center gap-1">
+      <%= form.radio_button :state, "published" %>
+      <%= form.label :state_published, "Publish", for: "post_state_published" %>
+    </div>
+  </div>
+
+  <div class="my-5">
+    <%= form.check_box :comments_enabled %>
+    <%= form.label :comments_enabled, "Allow comments on this post" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit "Save", class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

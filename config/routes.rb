@@ -13,6 +13,12 @@ Rails.application.routes.draw do
       resource :outbox, only: [ :show ]
     end
   end
+  resources :posts, param: :slug do
+    resources :versions, only: [ :index, :show ], controller: "posts/versions"
+    resources :comments, only: [ :create ]
+  end
+  get "feed", to: "posts#index", defaults: { format: :rss }, as: :feed
+  resource :settings, only: [ :edit, :update ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

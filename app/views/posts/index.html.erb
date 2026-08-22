@@ -1,0 +1,43 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <% if alert = flash[:alert] %>
+    <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block"><%= alert %></p>
+  <% end %>
+
+  <% if notice = flash[:notice] %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block"><%= notice %></p>
+  <% end %>
+
+  <div class="flex items-center justify-between">
+    <h1 class="font-bold text-4xl">Blog</h1>
+    <div class="flex items-center gap-4">
+      <%= link_to "RSS feed", feed_path, class: "text-gray-500 underline hover:no-underline" %>
+      <% if authenticated? %>
+        <%= link_to "New post", new_post_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mt-6 divide-y">
+    <% @posts.each do |post| %>
+      <div class="py-4">
+        <h2 class="font-semibold text-2xl">
+          <%= link_to post.title, post_path(post) %>
+          <% if post.draft? %>
+            <span class="text-sm font-medium text-yellow-600 align-middle">Draft</span>
+          <% end %>
+        </h2>
+        <p class="text-sm text-gray-500">
+          By <%= post.authors.map(&:name).to_sentence %>
+          <% if post.published? %>
+            &middot; <%= post.published_at.to_fs(:long) %>
+          <% end %>
+        </p>
+        <p class="mt-2"><%= post.summary %></p>
+      </div>
+    <% end %>
+
+    <% if @posts.empty? %>
+      <p class="py-4 text-gray-500">No posts yet.</p>
+    <% end %>
+  </div>
+</div>

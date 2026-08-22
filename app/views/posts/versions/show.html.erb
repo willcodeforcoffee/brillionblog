@@ -1,0 +1,13 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <p><%= link_to "Back to history", post_versions_path(@post), class: "text-blue-600 underline hover:no-underline" %></p>
+
+  <h1 class="font-bold text-4xl mt-2"><%= @post_version.title %></h1>
+  <p class="text-sm text-gray-500 mt-2">
+    Saved by <%= @post_version.user.name %> &middot; <%= @post_version.created_at.to_fs(:long) %>
+  </p>
+  <p class="mt-4 italic"><%= @post_version.summary %></p>
+
+  <div class="mt-6">
+    <%= @post_version.content %>
+  </div>
+</div>

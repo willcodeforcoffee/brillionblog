@@ -1,0 +1,11 @@
+one:
+  post: one
+  user: one
+
+draft_one:
+  post: draft_one
+  user: one
+
+no_comments:
+  post: no_comments
+  user: two
