@@ -9,5 +9,5 @@
 #   end
 if Rails.env.development? && User.count.zero?
   puts "Creating test@example.com"
-  User.create!(email_address: "test@example.com", password: "Password123", password_confirmation: "Password123")
+  User.create!(email_address: "test@example.com", password: "Password123", password_confirmation: "Password123", username: "Tester", name: "Test Example")
 end
